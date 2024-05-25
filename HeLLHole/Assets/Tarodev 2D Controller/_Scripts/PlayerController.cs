@@ -181,12 +181,12 @@ namespace TarodevController
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if(collision.name == "WallJump") _onWall = true;
-            //Debug.Log(_onWall);
+            Debug.Log(_onWall);
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.name == "WallJump") _onWall = false;
-           // Debug.Log(_onWall);
+           Debug.Log(_onWall);
         }
 
         #endregion

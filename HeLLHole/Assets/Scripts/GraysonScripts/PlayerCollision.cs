@@ -32,14 +32,14 @@ public class PlayerCollision : MonoBehaviour
             Instantiate(wallPlatformR, gameObject.transform.position + new Vector3(wallPlatDist, 0, 0), wallPlatformR.transform.rotation);
             gameObject.transform.position = spawnPoint.transform.position;
         }
-        else if (collision.gameObject.tag == "BadWallL")
+          else if (collision.gameObject.tag == "BadWallL")
         {
             Debug.Log("WallPlatL");
 
             Instantiate(wallPlatformL, gameObject.transform.position + new Vector3(-wallPlatDist, 0, 0), wallPlatformL.transform.rotation);
             gameObject.transform.position = spawnPoint.transform.position;
         }
-        else if (collision.gameObject.tag == "BadFloor")
+        if (collision.gameObject.tag == "BadFloor")
         {
             Debug.Log("FloorPlat");
             Instantiate(floorPlatform, gameObject.transform.position + new Vector3(0, -floorPlatDist, 0), floorPlatform.transform.rotation);

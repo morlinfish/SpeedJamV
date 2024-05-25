@@ -9,6 +9,7 @@ TagManager:
   - BadWallL
   - Wall
   - Platform
+  - BadWall
   layers:
   - Default
   - TransparentFX

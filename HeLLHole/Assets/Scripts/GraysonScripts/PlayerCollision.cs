@@ -49,4 +49,13 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("OnWall");
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("OffWall");
+    }*/
+
 }

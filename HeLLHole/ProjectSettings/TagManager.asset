@@ -7,6 +7,8 @@ TagManager:
   - BadFloor
   - BadWallR
   - BadWallL
+  - Safe
+  - Wall
   layers:
   - Default
   - TransparentFX

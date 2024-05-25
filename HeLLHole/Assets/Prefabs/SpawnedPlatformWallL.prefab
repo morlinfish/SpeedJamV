@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 3828622027493501354}
   - component: {fileID: 9157835690848767494}
   m_Layer: 0
-  m_Name: On Wall Detect
+  m_Name: WallJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

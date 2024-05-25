@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*
 public class TimerController : MonoBehaviour
 {
-    public static TimerController instance;
+   /* public static TimerController instance;
     public Text timeCounter;
 
     private TimeSpan timePlaying;
@@ -23,7 +23,6 @@ public class TimerController : MonoBehaviour
         timeCounter.text = "00:00.00";
         timerGoing = false;
     }
-
     public void BeginTimer()
     {
         timerGoing = true;
@@ -37,7 +36,7 @@ public class TimerController : MonoBehaviour
     {
         timerGoing = false;
     }
-    
+
     private IEnumerator UpdateTimer()
     {
         while (timerGoing)
@@ -51,3 +50,4 @@ public class TimerController : MonoBehaviour
         }
     }
 }
+*/

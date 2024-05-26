@@ -19,6 +19,7 @@ namespace TarodevController
         private FrameInput _frameInput;
         private Vector2 _frameVelocity;
         private bool _cachedQueryStartInColliders;
+        private bool facing_right = true;
 
         #region Interface
 
@@ -31,6 +32,7 @@ namespace TarodevController
         private float _time;
         public float wallCooldownTimer;
         public bool canWallJump;
+        public Animator Player_animator;
 
         private void Awake()
         {
@@ -66,8 +68,24 @@ namespace TarodevController
 
             if (_stats.SnapInput)
             {
+                //if that flips character
+                if(_frameInput.Move.x > 0 && !facing_right)
+                {
+                    //Debug.Log("Turn right");
+                    Flip();
+
+                }else if (_frameInput.Move.x < 0 && facing_right)
+                {
+                    //Debug.Log("Turn left");
+                    Flip();
+                }
+
                 _frameInput.Move.x = Mathf.Abs(_frameInput.Move.x) < _stats.HorizontalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.x);
+
+                Player_animator.SetFloat("Speed", Mathf.Abs(_frameInput.Move.x));   //sets animation state
+
                 _frameInput.Move.y = Mathf.Abs(_frameInput.Move.y) < _stats.VerticalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.y);
+
             }
 
             if (_frameInput.JumpDown)
@@ -108,6 +126,8 @@ namespace TarodevController
             if (!_grounded && groundHit)
             {
                 _grounded = true;
+                Player_animator.SetBool("Fell",!_grounded);   //sets animation state
+                Player_animator.SetBool("isJumping", false);   //sets animation state
                 _coyoteUsable = true;
                 _bufferedJumpUsable = true;
                 _endedJumpEarly = false;
@@ -117,6 +137,7 @@ namespace TarodevController
             else if (_grounded && !groundHit)
             {
                 _grounded = false;
+                Player_animator.SetBool("Fell", !_grounded);   //sets animation state
                 _frameLeftGrounded = _time;
                 GroundedChanged?.Invoke(false, 0);
             }
@@ -155,6 +176,7 @@ namespace TarodevController
 
         private void ExecuteJump()
         {
+            Player_animator.SetBool("isJumping", true);   //sets animation state
             _endedJumpEarly = false;
             _timeJumpWasPressed = 0;
             _bufferedJumpUsable = false;
@@ -165,6 +187,7 @@ namespace TarodevController
 
         private void ExecuteWallJump()
         {
+            Player_animator.SetBool("isJumping", true);   //sets animation state
             _endedJumpEarly = false;
             _timeJumpWasPressed = 0;
             _bufferedJumpUsable = false;
@@ -229,6 +252,16 @@ namespace TarodevController
 
         private void ApplyMovement() => _rb.velocity = _frameVelocity;
 
+        private void Flip()
+        {
+            facing_right = !facing_right;
+            // Multiply the player's x local scale by -1.
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+
+        }
+
 #if UNITY_EDITOR
         private void OnValidate()
         {
@@ -244,11 +277,15 @@ namespace TarodevController
         public Vector2 Move;
     }
 
-    public interface IPlayerController
+
+    
+     public interface IPlayerController
     {
         public event Action<bool, float> GroundedChanged;
 
         public event Action Jumped;
         public Vector2 FrameInput { get; }
     }
+    
+
 }

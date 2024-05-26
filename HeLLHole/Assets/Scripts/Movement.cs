@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded = false;
     public bool onWall = false;
 
+    public Animator animator_player;
+
     void Start()
 
     {

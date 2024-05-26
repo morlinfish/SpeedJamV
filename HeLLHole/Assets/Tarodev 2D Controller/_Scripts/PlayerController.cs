@@ -21,6 +21,10 @@ namespace TarodevController
         private bool _cachedQueryStartInColliders;
         private bool facing_right = true;
 
+        public ParticleSystem Dust;
+        public ParticleSystem Big_Dust;
+
+
         #region Interface
 
         public Vector2 FrameInput => _frameInput.Move;
@@ -84,6 +88,17 @@ namespace TarodevController
 
                 Player_animator.SetFloat("Speed", Mathf.Abs(_frameInput.Move.x));   //sets animation state
 
+                /*
+                if(_frameInput.Move.y < 0)
+                {
+                    Player_animator.SetBool("Fell", true);   //sets animation state
+                }
+                else
+                {
+                    Player_animator.SetBool("Fell", false);   //sets animation state
+                }
+                */
+
                 _frameInput.Move.y = Mathf.Abs(_frameInput.Move.y) < _stats.VerticalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.y);
 
             }
@@ -125,8 +140,9 @@ namespace TarodevController
             // Landed on the Ground
             if (!_grounded && groundHit)
             {
+                
                 _grounded = true;
-                Player_animator.SetBool("Fell",!_grounded);   //sets animation state
+                Player_animator.SetBool("Grounded", _grounded);   //sets animation state
                 Player_animator.SetBool("isJumping", false);   //sets animation state
                 _coyoteUsable = true;
                 _bufferedJumpUsable = true;
@@ -137,7 +153,7 @@ namespace TarodevController
             else if (_grounded && !groundHit)
             {
                 _grounded = false;
-                Player_animator.SetBool("Fell", !_grounded);   //sets animation state
+                Player_animator.SetBool("Grounded", _grounded);   //sets animation state
                 _frameLeftGrounded = _time;
                 GroundedChanged?.Invoke(false, 0);
             }
@@ -259,7 +275,23 @@ namespace TarodevController
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+            if (_grounded)
+            {
+                PlayDust();
+            }
+            
 
+        }
+
+        public void TurnOffJumpvar()
+        {
+            Player_animator.SetBool("isJumping", false);   //sets animation state
+        }
+
+        private void PlayDust()
+        {
+            Dust.Play();
+            Big_Dust.Play();
         }
 
 #if UNITY_EDITOR

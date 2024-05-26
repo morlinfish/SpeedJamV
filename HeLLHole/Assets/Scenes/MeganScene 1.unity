@@ -4567,6 +4567,16 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!198 &1444730895 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1136515467209576247, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+  m_PrefabInstance: {fileID: 8822065767882072356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1617149190 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1805167262732477862, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+  m_PrefabInstance: {fileID: 8822065767882072356}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1918284637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4767,6 +4777,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 217000694527809086, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 217000694527809086, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.69
       objectReference: {fileID: 0}
@@ -4810,10 +4824,62 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 222720788}
+    - target: {fileID: 1136515467209576247, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136515467209576247, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: VelocityModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136515467209576247, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136515467209576247, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246171676186688306, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335032271824794232, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335032271824794232, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335032271824794232, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499324918949172910, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: m_Name
+      value: Big_Dust
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805167262732477862, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805167262732477862, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: VelocityModule.inWorldSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2039499260458983772, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5306078210373095202, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: Dust
+      value: 
+      objectReference: {fileID: 1444730895}
+    - target: {fileID: 5306078210373095202, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
+      propertyPath: Big_Dust
+      value: 
+      objectReference: {fileID: 1617149190}
     - target: {fileID: 6031382481683990747, guid: e9c14d8a8c188b246b791c128282934c, type: 3}
       propertyPath: spawnPoint
       value: 

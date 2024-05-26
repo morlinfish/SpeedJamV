@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 1324240618}
   - component: {fileID: 1324240617}
   - component: {fileID: 1324240616}
+  - component: {fileID: 1324240619}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -466,6 +467,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1324240619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324240615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 32
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
+  m_UpscaleRT: 1
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1391735923
 GameObject:
   m_ObjectHideFlags: 0
@@ -4717,6 +4738,7 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: 05e6a06c5af93134ab98ff12e2c27265, type: 2}
   wallCooldownTimer: 0
   canWallJump: 0
+  Player_animator: {fileID: 0}
 --- !u!70 &1814356353
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4766,6 +4788,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sdPlatform: {fileID: 2348546759136783758, guid: 4201a4f957c31684c9fe90d50e88961c, type: 3}
   spawnPoint: {fileID: 222720788}
+  player: {fileID: 0}
+  cameraPos: {fileID: 0}
+  spawnPoint2: {fileID: 0}
   sdPlatformUnused: 1
 --- !u!1 &1918284637
 GameObject:

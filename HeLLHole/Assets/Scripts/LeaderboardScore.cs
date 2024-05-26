@@ -20,11 +20,7 @@ public class LeaderboardScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score += scoreIncrease * Time.deltaTime;
-
-        if (scoreDisplay != null)
-        {
-            scoreDisplay.text = score.ToString("mm':'ss'.'ff");
-        }
+        score = Time.time;
+        scoreDisplay.text = score.ToString();
     }
 }
